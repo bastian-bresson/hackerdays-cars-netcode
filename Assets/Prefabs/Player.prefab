@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 200108656649239786}
   - component: {fileID: 2862674155039980203}
   - component: {fileID: 5737705417176498495}
+  - component: {fileID: 3289504090044744153}
   m_Layer: 0
   m_Name: Car Anchor
   m_TagString: Untagged
@@ -132,6 +133,23 @@ MonoBehaviour:
   driftFactor: 0.95
   accelerationFactor: 30
   turnFactor: 3.5
+--- !u!114 &3289504090044744153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8107410402538951989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fe1a9bf441924b378469e8d6197ac85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheels:
+  - {fileID: 6327064485708960842}
+  - {fileID: 5138593116889927993}
+  - {fileID: 5181604167627801466}
+  - {fileID: 4201020947500035106}
 --- !u!1 &8357298967810339691
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,9 +268,113 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3462a45d96f7c4ab5a9a950b67e71ea9, type: 3}
+--- !u!1 &1358754097166297263 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6899449840304533443, guid: 3462a45d96f7c4ab5a9a950b67e71ea9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3646641689834158226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6327064485708960842
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358754097166297263}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 38b2be31c315f4a668952e1c4d424cac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &3824048899711868793 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3462a45d96f7c4ab5a9a950b67e71ea9,
     type: 3}
   m_PrefabInstance: {fileID: 3646641689834158226}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4290116229810023454 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8569518100099689332, guid: 3462a45d96f7c4ab5a9a950b67e71ea9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3646641689834158226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4201020947500035106
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4290116229810023454}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b982a611d5be649e3a18854f52768eed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &6578709183383499442 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7626630938287245856, guid: 3462a45d96f7c4ab5a9a950b67e71ea9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3646641689834158226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5138593116889927993
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578709183383499442}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b982a611d5be649e3a18854f52768eed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &6851533185119142647 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1328860500621903259, guid: 3462a45d96f7c4ab5a9a950b67e71ea9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3646641689834158226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5181604167627801466
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6851533185119142647}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 38b2be31c315f4a668952e1c4d424cac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
