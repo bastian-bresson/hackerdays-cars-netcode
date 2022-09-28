@@ -1,27 +1,26 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Controls;
 using UnityEngine;
 
-public class CarInputHandler : MonoBehaviour
+namespace Controls
 {
-    private CarMovement carMovement;
-
-    private void Awake()
+    public class CarInputHandler : MonoBehaviour
     {
-        carMovement = GetComponent<CarMovement>();
-    }
+        [SerializeField] private CarWheelAnimations carWheelAnimations;
+        [SerializeField] private CarMovement carMovement;
 
-    // Update is called once per frame
-    void Update()
-    {
-        Vector3 inputVector = Vector3.zero;
+        // Update is called once per frame
+        void Update()
+        {
+            Vector3 inputVector = Vector3.zero;
 
-        inputVector.x = Input.GetAxis("Horizontal");
-        inputVector.y = Input.GetAxis("Vertical");
+            inputVector.x = Input.GetAxis("Horizontal");
+            inputVector.y = Input.GetAxis("Vertical");
 
-        carMovement.SetInputVector(inputVector);
-        // add comment for git test
+            carMovement.SetInputVector(inputVector);
+            
+            if(inputVector != Vector3.zero)
+                carWheelAnimations.SpinWheels();
+            else
+                carWheelAnimations.StopWheels();
+        }
     }
 }

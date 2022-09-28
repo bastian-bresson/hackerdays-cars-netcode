@@ -7,7 +7,6 @@ namespace Controls
     {
         [Header("Car Components")]
         [SerializeField] private Rigidbody carRigidBody;
-        [SerializeField] private CarWheelAnimations carWheelAnimations;
 
         [Header("Car Movement Settings")]
         [SerializeField] private float driftFactor = 0.95f;
