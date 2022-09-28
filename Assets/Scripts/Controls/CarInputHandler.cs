@@ -1,8 +1,9 @@
+using Unity.Netcode;
 using UnityEngine;
 
 namespace Controls
 {
-    public class CarInputHandler : MonoBehaviour
+    public class CarInputHandler : NetworkBehaviour
     {
 
         [SerializeField] private CarMovement carMovement;
@@ -11,6 +12,11 @@ namespace Controls
         // Update is called once per frame
         void Update()
         {
+            if (!IsOwner)
+            {
+                return;
+            }
+            
             Vector3 inputVector = Vector3.zero;
 
             inputVector.x = Input.GetAxis("Horizontal");

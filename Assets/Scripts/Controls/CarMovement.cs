@@ -29,13 +29,12 @@ public class CarMovement : NetworkBehaviour
     private void UpdateServer()
     {
         ApplyEngineForce();
+        ApplySteering();
     }
 
     private void UpdateClient()
     {
-        // Set forward
         
-        // ApplySteering();
     }
 
 
@@ -80,13 +79,13 @@ public class CarMovement : NetworkBehaviour
     }
 
         //HELP. How to vector math when not 2D?!?
-        private void KillOrthogonalVelocity()
-        {
-            Vector3 forwardVelocity = transform.forward * Vector3.Dot(carRigidBody.velocity, transform.forward);
-            Vector3 rightVelocity = transform.right * Vector3.Dot(carRigidBody.velocity, transform.right);
+    private void KillOrthogonalVelocity()
+    {
+        Vector3 forwardVelocity = transform.forward * Vector3.Dot(carRigidBody.velocity, transform.forward);
+        Vector3 rightVelocity = transform.right * Vector3.Dot(carRigidBody.velocity, transform.right);
 
-            //carRigidBody.velocity = forwardVelocity * rightVelocity * driftFactor;
-        }
+        //carRigidBody.velocity = forwardVelocity * rightVelocity * driftFactor;
+    }
     
     [ServerRpc]
     public void SetInputVectorServerRpc(Vector3 inputVector)
