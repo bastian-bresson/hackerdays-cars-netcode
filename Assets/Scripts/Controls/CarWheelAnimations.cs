@@ -10,7 +10,11 @@ namespace Controls
 
         public void MoveWheelsBackwards()
         {
-            // TODO
+            foreach (Animator animator in wheels)
+            {
+                animator.enabled = true;
+                animator.Play("Backwards");
+            }
         }
         
         public void MoveWheelsForwards()
@@ -18,6 +22,7 @@ namespace Controls
             foreach (Animator animator in wheels)
             {
                 animator.enabled = true;
+                animator.Play("Forwards");
             }
         }
 

@@ -16,11 +16,24 @@ namespace Controls
             inputVector.y = Input.GetAxis("Vertical");
 
             carMovement.SetInputVector(inputVector);
-            
-            if(inputVector != Vector3.zero)
-                carWheelAnimations.MoveWheelsForwards();
-            else
-                carWheelAnimations.StopMovingWheels();
+
+            UpdateWheelSpin(inputVector.y);
+        }
+
+        private void UpdateWheelSpin(float inputY)
+        {
+            switch (inputY)
+            {
+                case > 0:
+                    carWheelAnimations.MoveWheelsForwards();
+                    break;
+                case < 0:
+                    carWheelAnimations.MoveWheelsBackwards();
+                    break;
+                default:
+                    carWheelAnimations.StopMovingWheels();
+                    break;
+            }
         }
     }
 }
