@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5009110453362978670}
   - component: {fileID: 2199693059332288794}
   - component: {fileID: 200108656649239786}
+  - component: {fileID: 2862674155039980203}
+  - component: {fileID: 5737705417176498495}
   m_Layer: 0
   m_Name: Car Anchor
   m_TagString: Untagged
@@ -103,6 +105,33 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.312821, y: 0.6340585, z: 2.588519}
   m_Center: {x: 0.0029512048, y: 0.31282103, z: 0.0029718876}
+--- !u!114 &2862674155039980203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8107410402538951989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02bd4fca762944b8a8b58ee96db74267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5737705417176498495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8107410402538951989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25621f0063584823af0c453fe571afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  driftFactor: 0.95
+  accelerationFactor: 30
+  turnFactor: 3.5
 --- !u!1 &8357298967810339691
 GameObject:
   m_ObjectHideFlags: 0
