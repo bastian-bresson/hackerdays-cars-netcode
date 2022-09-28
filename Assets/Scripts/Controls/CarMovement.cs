@@ -39,13 +39,17 @@ public class CarMovement : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        base.OnNetworkSpawn();
-        SetStartPosition();
+        if (IsServer)
+        {
+            base.OnNetworkSpawn();
+            SetStartPosition();
+        }
     }
 
     private void SetStartPosition()
     {
-        transform.position = new Vector3(50, 0, 10);
+        var availableSpawnPoint = SpawnManager.instance.GetNextAvailableSpawnPoint();
+        transform.position = availableSpawnPoint.getPosition();
     }
 
     // Update is called once per frame
