@@ -61,6 +61,7 @@ public class Leaderboard : MonoBehaviour
 
         for (int i = 0; i < leaderBoardPlacements.Count; i++)
         {
+            Debug.Log($"Position {i} {leaderBoardPlacements[i].playerName}");
             leaderboardPlayerViews[i].SetName(leaderBoardPlacements[i].playerName);
         }
     }
