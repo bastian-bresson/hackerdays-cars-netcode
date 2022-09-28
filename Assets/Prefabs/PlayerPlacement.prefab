@@ -220,6 +220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9120698100685735353}
+  - component: {fileID: 7174718714493425453}
   m_Layer: 5
   m_Name: PlayerPlacement
   m_TagString: Untagged
@@ -250,6 +251,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7174718714493425453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6924705335110602603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbd28011c99d4eea90ed56609e70019b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: {fileID: 1808703191749850519}
+  racePosition: {fileID: 7315986337625772076}
 --- !u!1 &7691237582899190980
 GameObject:
   m_ObjectHideFlags: 0
