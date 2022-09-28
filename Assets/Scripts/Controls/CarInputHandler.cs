@@ -4,7 +4,6 @@ namespace Controls
 {
     public class CarInputHandler : MonoBehaviour
     {
-
         [SerializeField] private CarMovement carMovement;
         [SerializeField] private CarWheelAnimations carWheelAnimations;
         
