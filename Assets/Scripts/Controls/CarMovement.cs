@@ -37,6 +37,16 @@ public class CarMovement : NetworkBehaviour
         
     }
 
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+        SetStartPosition();
+    }
+
+    private void SetStartPosition()
+    {
+        transform.position = new Vector3(50, 0, 10);
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -63,7 +73,7 @@ public class CarMovement : NetworkBehaviour
     private void ApplySteering()
     {
         rotationAngle -= steeringInput.Value * turnFactor;
-        carRigidBody.MoveRotation(Quaternion.Euler(0,rotationAngle,0));
+        carRigidBody.MoveRotation(Quaternion.Euler(0,-rotationAngle,0));
     }
 
     private void UpdateClientEngineForce()
