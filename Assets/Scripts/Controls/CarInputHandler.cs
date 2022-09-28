@@ -9,13 +9,11 @@ namespace Controls
         [SerializeField] private CarWheelAnimations carWheelAnimations;
         
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
             if (!IsOwner)
-            {
                 return;
-            }
-            
+
             Vector3 inputVector = Vector3.zero;
 
             inputVector.x = Input.GetAxis("Horizontal");
@@ -24,11 +22,12 @@ namespace Controls
             carMovement.SetInputVectorServerRpc(inputVector);
 
             UpdateWheelSpin(inputVector.y);
+            carWheelAnimations.TurnWheels(inputVector.x);
         }
 
-        private void UpdateWheelSpin(float inputY)
+        private void UpdateWheelSpin(float inputVectorY)
         {
-            switch (inputY)
+            switch (inputVectorY)
             {
                 case > 0:
                     carWheelAnimations.MoveWheelsForwards();

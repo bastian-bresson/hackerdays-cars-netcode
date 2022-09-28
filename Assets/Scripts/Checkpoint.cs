@@ -1,3 +1,4 @@
+using System;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -20,11 +21,14 @@ public class Checkpoint : NetworkBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        var playerRacePosition = collision.gameObject.GetComponent<PlayerRacePosition>();
+        Debug.Log("COLLISION");
+        var playerRacePosition = other.gameObject.GetComponent<PlayerRacePosition>();
 
         if (playerRacePosition == null) return;
+        
+        Debug.Log("Found Player Position");
 
         if (isStart)
         {
