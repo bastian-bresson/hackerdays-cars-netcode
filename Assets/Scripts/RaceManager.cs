@@ -10,6 +10,8 @@ public class RaceManager : NetworkBehaviour
 
     [SerializeField] private Canvas startCanvas;
 
+    private bool hasStarted;
+
     private void Awake()
     {
         if (Instance == null)
@@ -18,7 +20,9 @@ public class RaceManager : NetworkBehaviour
 
     public void StartRace()
     {
-        if (!IsServer) return;
+        if (!IsServer || hasStarted) return;
+
+        hasStarted = true;
         
         StartRaceClientRPC();
     }

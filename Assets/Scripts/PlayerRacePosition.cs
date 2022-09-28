@@ -1,4 +1,5 @@
 using Unity.Netcode;
+using UnityEngine;
 
 public class PlayerRacePosition : NetworkBehaviour
 {
@@ -27,11 +28,11 @@ public class PlayerRacePosition : NetworkBehaviour
 
     private void Setup()
     {
-        
+        Leaderboard.Instance.RegisterPlayer(OwnerClientId.ToString());
     }
 
     private void UpdateRacePosition(int lab, int checkpoint)
     {
-        
+        Leaderboard.Instance.UpdatePlayerPlacement(OwnerClientId.ToString(), lab, checkpoint);
     }
 }
