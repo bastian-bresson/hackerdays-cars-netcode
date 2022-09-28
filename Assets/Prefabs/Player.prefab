@@ -130,6 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25621f0063584823af0c453fe571afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carRigidBody: {fileID: 4092498264196706195}
+  carWheelAnimations: {fileID: 3289504090044744153}
   driftFactor: 0.95
   accelerationFactor: 30
   turnFactor: 3.5

@@ -8,11 +8,6 @@ namespace Controls
     {
         [SerializeField] private List<Animator> wheels;
 
-        private void Awake()
-        {
-            SpinWheels();
-        }
-
         public void SpinWheels()
         {
             foreach (Animator animator in wheels)
