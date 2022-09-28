@@ -846,11 +846,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe1a9bf441924b378469e8d6197ac85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftFrontWheel: {fileID: 5978727597379475052}
+  rightFrontWheel: {fileID: 3614341141132989266}
   wheels:
   - {fileID: 6327064485708960842}
   - {fileID: 5138593116889927993}
   - {fileID: 5181604167627801466}
   - {fileID: 4201020947500035106}
+  turnSpeed: 2
+  maxRotation: 20
 --- !u!114 &4846241924887916495
 MonoBehaviour:
   m_ObjectHideFlags: 0
