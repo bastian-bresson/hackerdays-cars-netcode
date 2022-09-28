@@ -13,10 +13,12 @@ public class CarMovement : NetworkBehaviour
     private NetworkVariable<float> accelerationInput = new NetworkVariable<float>();
     private NetworkVariable<float> steeringInput = new NetworkVariable<float>();
 
-        private float rotationAngle = 0;
+    private float rotationAngle = 90;
 
     private Rigidbody carRigidBody;
-
+    private float velocityForward;
+    private float maximumSpeed = 20;
+    private float minimumTurnSpeedFactor = 8;
 
     private void Awake()
     {
@@ -39,17 +41,18 @@ public class CarMovement : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
+        base.OnNetworkSpawn();
         if (IsServer)
         {
-            base.OnNetworkSpawn();
             SetStartPosition();
         }
+        
     }
 
     private void SetStartPosition()
     {
         var availableSpawnPoint = SpawnManager.instance.GetNextAvailableSpawnPoint();
-        transform.position = availableSpawnPoint.getPosition();
+        transform.parent.position = availableSpawnPoint.getPosition();
     }
 
     // Update is called once per frame
@@ -68,16 +71,33 @@ public class CarMovement : NetworkBehaviour
     
     private void ApplyEngineForce()
     {
+        if (accelerationInput.Value == 0)
+        {
+            carRigidBody.drag = 1.5f;
+        }
+        else
+        {
+            carRigidBody.drag = 0;
+        }
+
+        velocityForward = Vector3.Dot(transform.forward, carRigidBody.velocity);
+
+        if (velocityForward > maximumSpeed && accelerationInput.Value > 0) return;
+
+        if (velocityForward < -maximumSpeed / 1.5f && accelerationInput.Value < 0) return;
         // Vector3 engineForceVector = transform.forward * accelerationInput * accelerationFactor;
         Vector3 engineForceVector = transform.forward * accelerationInput.Value * accelerationFactor;
 
         carRigidBody.AddForce(engineForceVector, ForceMode.Force);
     }
-    
+
     private void ApplySteering()
     {
-        rotationAngle -= steeringInput.Value * turnFactor;
-        carRigidBody.MoveRotation(Quaternion.Euler(0,-rotationAngle,0));
+        float minSpeedBeforeAllowTurningFactor = carRigidBody.velocity.magnitude / minimumTurnSpeedFactor;
+        minSpeedBeforeAllowTurningFactor = Mathf.Clamp01(minSpeedBeforeAllowTurningFactor);
+
+        rotationAngle += steeringInput.Value * turnFactor * minSpeedBeforeAllowTurningFactor;
+        carRigidBody.MoveRotation(Quaternion.Euler(0, rotationAngle, 0));
     }
 
     private void UpdateClientEngineForce()
