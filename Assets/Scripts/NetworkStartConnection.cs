@@ -39,9 +39,11 @@ public class NetworkStartConnection : MonoBehaviour
     }
     static void StartRace()
     {
+        if (!NetworkManager.Singleton.IsServer) return;
+        
         if (!GUILayout.Button("Start")) return;
             
-        if (NetworkManager.Singleton.IsServer && !NetworkManager.Singleton.IsClient)
+        if (!NetworkManager.Singleton.IsClient)
         {
             RaceManager.Instance.StartRace();
         }
