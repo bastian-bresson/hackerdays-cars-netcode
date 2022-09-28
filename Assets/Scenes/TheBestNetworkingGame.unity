@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,13 +123,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &558923327
+--- !u!1001 &523607941
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4277562634826237857, guid: da9b1556e5674421aaee48a7113e04e9,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2928182427
+      objectReference: {fileID: 0}
     - target: {fileID: 6602034152837535916, guid: da9b1556e5674421aaee48a7113e04e9,
         type: 3}
       propertyPath: m_RootOrder
@@ -188,7 +193,7 @@ PrefabInstance:
     - target: {fileID: 6602034152837535918, guid: da9b1556e5674421aaee48a7113e04e9,
         type: 3}
       propertyPath: m_Name
-      value: NetworkingStartConnection
+      value: NetworkThings
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da9b1556e5674421aaee48a7113e04e9, type: 3}
