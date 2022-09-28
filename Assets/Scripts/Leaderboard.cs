@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Leaderboard : MonoBehaviour
@@ -15,13 +16,19 @@ public class Leaderboard : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null)
+        if (Instance == null)
             Instance = this;
     }
 
-    public void RegisterPlayer(string playerName)
+    public void RegisterPlayer(string playerNumber)
     {
+        string playerName = "Player " + playerNumber;
+        
+        Debug.Log($"Incoming player with name: {playerName}");
+        
         if (leaderBoardPlacements.Any(p => p.playerName == playerName)) return;
+     
+        Debug.Log($"Registering player with name: {playerName}");
         
         leaderBoardPlacements.Add(new LeaderBoardPlacement(playerName));
 
@@ -30,6 +37,8 @@ public class Leaderboard : MonoBehaviour
         playerView.SetRacePosition(leaderboardPlayerViews.Count);
         
         UpdatePlayerPlacement(playerName, 0, 0);
+
+        UpdateUI();
     }
 
     public void UpdatePlayerPlacement(string playerName, int labs, int checkPointNumber)
@@ -40,11 +49,13 @@ public class Leaderboard : MonoBehaviour
 
         placement.labsCompleted = labs;
         placement.checkPointNumber = checkPointNumber;
+
+        UpdateUI();
     }
 
     private void UpdateUI()
     {
-        var orderedEnumerable = leaderBoardPlacements
+        leaderBoardPlacements
             .OrderBy(p => p.labsCompleted)
             .ThenBy(p => p.checkPointNumber);
 

@@ -580,6 +580,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 350002890585215003, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1821145990
+      objectReference: {fileID: 0}
+    - target: {fileID: 789015293853688734, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: checkPointOrderOnTrack
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1820673596093811270, guid: 143e49970157946c18f06a27837c921f,
         type: 3}
       propertyPath: m_RootOrder
@@ -644,6 +654,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351451859431356716, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: checkPointOrderOnTrack
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415676823351728075, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: checkPointOrderOnTrack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836392783934356147, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3528342533
+      objectReference: {fileID: 0}
+    - target: {fileID: 5538377886853082649, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: checkPointOrderOnTrack
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5563635902219389238, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: checkPointOrderOnTrack
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7121593352607466958, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3673919947
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588422055822024705, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 347150861
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406766995329683174, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2765848679
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1820673596590176257, guid: 143e49970157946c18f06a27837c921f, type: 3}
