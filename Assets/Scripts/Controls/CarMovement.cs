@@ -1,45 +1,83 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-namespace Controls
+public class CarMovement : NetworkBehaviour
 {
-    public class CarMovement : NetworkBehaviour
-    {
-        [Header("Car Components")]
-        [SerializeField] private Rigidbody carRigidBody;
+    public float driftFactor = 0.95f;
+    public float accelerationFactor = 30f;
+    public float turnFactor = 3.5f;
 
-        [Header("Car Movement Settings")]
-        [SerializeField] private float driftFactor = 0.95f;
-        [SerializeField] private float accelerationFactor = 30f;
-        [SerializeField] private float turnFactor = 3.5f;
-
-        private float accelerationInput = 0;
-        private float steeringInput = 0;
+    private NetworkVariable<float> accelerationInput = new NetworkVariable<float>();
+    private NetworkVariable<float> steeringInput = new NetworkVariable<float>();
 
         private float rotationAngle = 0;
 
-        // Update is called once per frame
-        void FixedUpdate()
-        {
-            ApplyEngineForce();
+    private Rigidbody carRigidBody;
+
+
+    private void Awake()
+    {
+        carRigidBody = GetComponent<Rigidbody>();
+    }
+    
+    void Update()
+    {
+    }
+    private void UpdateServer()
+    {
+        ApplyEngineForce();
+    }
+
+    private void UpdateClient()
+    {
+        // Set forward
         
-            //KillOrthogonalVelocity();
+        // ApplySteering();
+    }
+
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (IsServer)
+        {
+            UpdateServer();
+        }
+
+        if (IsClient)
+        {
+            UpdateClient();
+        }
+    }
+    
+    private void ApplyEngineForce()
+    {
+        // Vector3 engineForceVector = transform.forward * accelerationInput * accelerationFactor;
+        Vector3 engineForceVector = transform.forward * accelerationInput.Value * accelerationFactor;
+
+        carRigidBody.AddForce(engineForceVector, ForceMode.Force);
+    }
+    
+    private void ApplySteering()
+    {
+        rotationAngle -= steeringInput.Value * turnFactor;
+        carRigidBody.MoveRotation(Quaternion.Euler(0,rotationAngle,0));
+    }
+
+    private void UpdateClientEngineForce()
+    {
+     
         
-            ApplySteering();
-        }
+    }
 
-        private void ApplyEngineForce()
-        {
-            Vector3 engineForceVector = transform.forward * accelerationInput * accelerationFactor;
-
-            carRigidBody.AddForce(engineForceVector, ForceMode.Force);
-        }
-
-        private void ApplySteering()
-        {
-            rotationAngle -= steeringInput * turnFactor;
-            carRigidBody.MoveRotation(Quaternion.Euler(0,rotationAngle,0));
-        }
+    private void UpdateClientSteering()
+    {
+        
+        
+    }
 
         //HELP. How to vector math when not 2D?!?
         private void KillOrthogonalVelocity()
@@ -50,11 +88,11 @@ namespace Controls
             //carRigidBody.velocity = forwardVelocity * rightVelocity * driftFactor;
         }
     
-        public void SetInputVector(Vector3 inputVector)
-        {
-            steeringInput = inputVector.x;
-            accelerationInput = inputVector.y;
-        }
-    
+    [ServerRpc]
+    public void SetInputVectorServerRpc(Vector3 inputVector)
+    {
+        steeringInput.Value = inputVector.x;
+        accelerationInput.Value = inputVector.y;
     }
+    
 }

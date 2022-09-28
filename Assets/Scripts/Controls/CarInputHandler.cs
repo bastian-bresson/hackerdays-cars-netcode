@@ -4,9 +4,10 @@ namespace Controls
 {
     public class CarInputHandler : MonoBehaviour
     {
-        [SerializeField] private CarWheelAnimations carWheelAnimations;
-        [SerializeField] private CarMovement carMovement;
 
+        [SerializeField] private CarMovement carMovement;
+        [SerializeField] private CarWheelAnimations carWheelAnimations;
+        
         // Update is called once per frame
         void Update()
         {
@@ -15,7 +16,7 @@ namespace Controls
             inputVector.x = Input.GetAxis("Horizontal");
             inputVector.y = Input.GetAxis("Vertical");
 
-            carMovement.SetInputVector(inputVector);
+            carMovement.SetInputVectorServerRpc(inputVector);
 
             UpdateWheelSpin(inputVector.y);
         }
