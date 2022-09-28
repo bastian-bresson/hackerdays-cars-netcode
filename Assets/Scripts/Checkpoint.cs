@@ -23,9 +23,12 @@ public class Checkpoint : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("COLLISION");
         var playerRacePosition = other.gameObject.GetComponent<PlayerRacePosition>();
 
         if (playerRacePosition == null) return;
+        
+        Debug.Log("Found Player Position");
 
         if (isStart)
         {
