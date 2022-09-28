@@ -18,9 +18,9 @@ namespace Controls
             carMovement.SetInputVector(inputVector);
             
             if(inputVector != Vector3.zero)
-                carWheelAnimations.SpinWheels();
+                carWheelAnimations.MoveWheelsForwards();
             else
-                carWheelAnimations.StopWheels();
+                carWheelAnimations.StopMovingWheels();
         }
     }
 }

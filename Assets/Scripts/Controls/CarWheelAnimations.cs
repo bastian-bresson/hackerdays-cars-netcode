@@ -8,7 +8,12 @@ namespace Controls
     {
         [SerializeField] private List<Animator> wheels;
 
-        public void SpinWheels()
+        public void MoveWheelsBackwards()
+        {
+            // TODO
+        }
+        
+        public void MoveWheelsForwards()
         {
             foreach (Animator animator in wheels)
             {
@@ -16,7 +21,7 @@ namespace Controls
             }
         }
 
-        public void StopWheels()
+        public void StopMovingWheels()
         {
             foreach (Animator animator in wheels)
             {
