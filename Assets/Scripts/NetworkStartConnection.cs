@@ -1,5 +1,6 @@
 using Hello_World;
 using Unity.Netcode;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class NetworkStartConnection : MonoBehaviour
@@ -15,8 +16,7 @@ public class NetworkStartConnection : MonoBehaviour
         else
         {
             StatusLabels();
-
-            SubmitNewPosition();
+            StartRace();
         }
 
         GUILayout.EndArea();
@@ -37,20 +37,13 @@ public class NetworkStartConnection : MonoBehaviour
         GUILayout.Label("Transport: " + NetworkManager.Singleton.NetworkConfig.NetworkTransport.GetType().Name);
         GUILayout.Label("Mode: " + mode);
     }
-    static void SubmitNewPosition()
+    static void StartRace()
     {
-        if (!GUILayout.Button(NetworkManager.Singleton.IsServer ? "Move" : "Request Position Change")) return;
+        if (!GUILayout.Button("Start")) return;
             
         if (NetworkManager.Singleton.IsServer && !NetworkManager.Singleton.IsClient)
         {
-            foreach (ulong uid in NetworkManager.Singleton.ConnectedClientsIds)
-                NetworkManager.Singleton.SpawnManager.GetPlayerNetworkObject(uid).GetComponent<HelloWorldPlayer>().Move();
-        }
-        else
-        {
-            var playerObject = NetworkManager.Singleton.SpawnManager.GetLocalPlayerObject();
-            var player = playerObject.GetComponent<HelloWorldPlayer>();
-            player.Move();
+            RaceManager.Instance.StartRace();
         }
     }
 }
