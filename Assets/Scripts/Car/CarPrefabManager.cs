@@ -1,4 +1,3 @@
-using System;
 using Controls;
 using UnityEngine;
 
@@ -12,7 +11,7 @@ namespace Car
 
         private void Awake()
         {
-            SetupCarPrefab(CarPrefabTerm.Van);
+            SetupCarPrefab(CarSelection.CarSelected);
         }
 
         public void SetupCarPrefab(CarPrefabTerm carPrefabTerm)
