@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -354,25 +354,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
---- !u!1 &1215000411 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1820673596590176263, guid: 143e49970157946c18f06a27837c921f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1820673596728441549}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1215000416
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215000411}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 0, z: 10.000001}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1307454646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -818,6 +799,12 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3324842031351521300, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -5354028657143720620, guid: cc6eedceeecdf4962a0ea5b04500f47d,
+        type: 3}
     - target: {fileID: 4415676823351728075, guid: 143e49970157946c18f06a27837c921f,
         type: 3}
       propertyPath: checkPointOrderOnTrack
@@ -838,6 +825,18 @@ PrefabInstance:
       propertyPath: checkPointOrderOnTrack
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6417966337780070581, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -5354028657143720620, guid: cc6eedceeecdf4962a0ea5b04500f47d,
+        type: 3}
+    - target: {fileID: 6579545065472472761, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -5354028657143720620, guid: cc6eedceeecdf4962a0ea5b04500f47d,
+        type: 3}
     - target: {fileID: 7121593352607466958, guid: 143e49970157946c18f06a27837c921f,
         type: 3}
       propertyPath: GlobalObjectIdHash
@@ -902,6 +901,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NetworkManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311876121659398698, guid: 61afd56d9a4474d11a45088fa25abc4d,
+        type: 3}
+      propertyPath: ConnectionData.Address
+      value: 192.168.10.48
       objectReference: {fileID: 0}
     - target: {fileID: 8959489837524654012, guid: 61afd56d9a4474d11a45088fa25abc4d,
         type: 3}
