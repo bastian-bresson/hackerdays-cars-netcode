@@ -45,6 +45,8 @@ public class CarMovement : NetworkBehaviour
         if (IsServer)
         {
             SetStartPosition();
+            PlayerCountHolder.playerCount.Value += 1;
+            Debug.Log(PlayerCountHolder.playerCount.Value);
         }
         
     }
