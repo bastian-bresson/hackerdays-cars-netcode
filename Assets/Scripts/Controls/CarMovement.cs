@@ -20,6 +20,12 @@ public class CarMovement : NetworkBehaviour
     private float maximumSpeed = 20;
     private float minimumTurnSpeedFactor = 8;
 
+    private NetworkVariable<int> playerNumber;
+
+
+
+    [SerializeField] private MeshRenderer bodyMesh;
+
     private void Awake()
     {
         carRigidBody = GetComponent<Rigidbody>();
@@ -42,15 +48,28 @@ public class CarMovement : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
+        
         if (IsServer)
         {
             SetStartPosition();
             PlayerCountHolder.instance.playerCount.Value += 1;
-            Debug.Log(PlayerCountHolder.instance.playerCount.Value);
-        }
+        }/*
+        if (IsOwner)
+        {
+            playerNumber.Value = PlayerCountHolder.instance.playerCount.Value;
+        }*/
+        //ChangeColor(playerNumber.Value);
         
+        Debug.Log(PlayerCountHolder.instance.playerCount.Value);
     }
 
+    private void ChangeColor(int playerCounter)
+    {
+        Material[] materials = bodyMesh.materials;
+        materials[0] = PlayerCountHolder.instance.carColors[playerCounter];
+        bodyMesh.materials = materials;
+    }
+    
     private void SetStartPosition()
     {
         var availableSpawnPoint = SpawnManager.instance.GetNextAvailableSpawnPoint();

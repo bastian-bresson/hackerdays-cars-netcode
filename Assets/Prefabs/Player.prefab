@@ -834,6 +834,7 @@ MonoBehaviour:
   driftFactor: 0.95
   accelerationFactor: 30
   turnFactor: 3.5
+  bodyMesh: {fileID: 5178880054784295470}
 --- !u!114 &3289504090044744153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -867,7 +868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4bf68c5ba1496099a3b7308e069a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  labNumber:
+  lapNumber:
     m_InternalValue: 0
   checkpointNumber:
     m_InternalValue: 0

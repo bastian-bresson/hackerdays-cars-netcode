@@ -8,8 +8,9 @@ public class PlayerCountHolder : NetworkBehaviour
     public static PlayerCountHolder instance;
     
     public NetworkVariable<int> playerCount;
-
     
+    public List<Material> carColors;
+
     private void Awake()
     {
         if (instance == null)
