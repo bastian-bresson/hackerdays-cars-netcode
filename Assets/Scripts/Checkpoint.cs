@@ -6,18 +6,19 @@ public class Checkpoint : NetworkBehaviour
 {
     [SerializeField] private bool isStart;
     [SerializeField] private int checkPointOrderOnTrack;
+    [SerializeField] private BoxCollider boxCollider;
     
     
     private void Awake()
     {
-        enabled = false;
+        boxCollider.enabled = false;
     }
 
     public override void OnNetworkSpawn()
     {
         if (IsServer)
         {
-            enabled = true;
+            boxCollider.enabled = true;
         }
     }
 
@@ -32,7 +33,7 @@ public class Checkpoint : NetworkBehaviour
 
         if (isStart)
         {
-            playerRacePosition.labNumber.Value++;
+            playerRacePosition.lapNumber.Value++;
         }
 
         playerRacePosition.checkpointNumber.Value = checkPointOrderOnTrack;

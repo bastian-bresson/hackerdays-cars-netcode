@@ -26,7 +26,7 @@ public class Leaderboard : MonoBehaviour
         
         Debug.Log($"Incoming player with name: {playerName}");
         
-        if (leaderBoardPlacements.Any(p => p.playerName == playerName)) return;
+        if (leaderBoardPlacements.Any(p => p.PlayerName == playerName)) return;
      
         Debug.Log($"Registering player with name: {playerName}");
         
@@ -41,41 +41,44 @@ public class Leaderboard : MonoBehaviour
         UpdateUI();
     }
 
-    public void UpdatePlayerPlacement(string playerName, int labs, int checkPointNumber)
+    public void UpdatePlayerPlacement(string playerName, int laps, int checkPointNumber)
     {
-        LeaderBoardPlacement placement = leaderBoardPlacements.FirstOrDefault(p => p.playerName == playerName);
+        Debug.Log($"{playerName} has completed {laps} laps and is at checkpoint {checkPointNumber}");
+        
+        LeaderBoardPlacement placement = leaderBoardPlacements.FirstOrDefault(p => p.PlayerName == playerName);
 
-        if (string.IsNullOrEmpty(placement.playerName)) return;
+        if (string.IsNullOrEmpty(placement.PlayerName)) return;
 
-        placement.labsCompleted = labs;
-        placement.checkPointNumber = checkPointNumber;
+        placement.LapsCompleted = laps;
+        placement.CheckPointNumber = checkPointNumber;
 
         UpdateUI();
     }
 
     private void UpdateUI()
     {
-        leaderBoardPlacements
-            .OrderBy(p => p.labsCompleted)
-            .ThenBy(p => p.checkPointNumber);
+        leaderBoardPlacements = leaderBoardPlacements
+            .OrderByDescending(p => p.LapsCompleted)
+            .ThenByDescending(p => p.CheckPointNumber).ToList();
 
         for (int i = 0; i < leaderBoardPlacements.Count; i++)
         {
-            leaderboardPlayerViews[i].SetName(leaderBoardPlacements[i].playerName);
+            Debug.Log($"Position {i+1} {leaderBoardPlacements[i].PlayerName}");
+            leaderboardPlayerViews[i].SetName(leaderBoardPlacements[i].PlayerName);
         }
     }
     
-    private struct LeaderBoardPlacement
+    private class LeaderBoardPlacement
     {
         public LeaderBoardPlacement(string playerName)
         {
-            this.playerName = playerName;
-            labsCompleted = 0;
-            checkPointNumber = 0;
+            PlayerName = playerName;
+            LapsCompleted = 0;
+            CheckPointNumber = 0;
         }
         
-        public string playerName;
-        public int labsCompleted;
-        public int checkPointNumber ;
+        public readonly string PlayerName;
+        public int LapsCompleted;
+        public int CheckPointNumber ;
     }
 }

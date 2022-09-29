@@ -65,6 +65,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStart: 0
   checkPointOrderOnTrack: 0
+  boxCollider: {fileID: 5518657782471819119}
 --- !u!65 &5518657782471819119
 BoxCollider:
   m_ObjectHideFlags: 0

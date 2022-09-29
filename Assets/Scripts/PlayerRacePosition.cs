@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class PlayerRacePosition : NetworkBehaviour
 {
-    public NetworkVariable<int> labNumber = new NetworkVariable<int>(0);
+    public NetworkVariable<int> lapNumber = new NetworkVariable<int>(0);
     public NetworkVariable<int> checkpointNumber = new NetworkVariable<int>(0);
 
     public override void OnNetworkSpawn()
     {
         if (!IsClient) return;
         
-        labNumber.OnValueChanged += OnLabChanged;
+        lapNumber.OnValueChanged += OnLabChanged;
         checkpointNumber.OnValueChanged += OnCheckpointChanged;
 
         Setup();
@@ -18,7 +18,8 @@ public class PlayerRacePosition : NetworkBehaviour
 
     private void OnCheckpointChanged(int previousvalue, int newvalue)
     {
-        UpdateRacePosition(labNumber.Value, newvalue);
+        Debug.Log($"Checkpoint {newvalue} reached");
+        UpdateRacePosition(lapNumber.Value, newvalue);
     }
 
     private void OnLabChanged(int previousvalue, int newvalue)
@@ -31,8 +32,8 @@ public class PlayerRacePosition : NetworkBehaviour
         Leaderboard.Instance.RegisterPlayer(OwnerClientId.ToString());
     }
 
-    private void UpdateRacePosition(int lab, int checkpoint)
+    private void UpdateRacePosition(int lap, int checkpoint)
     {
-        Leaderboard.Instance.UpdatePlayerPlacement(OwnerClientId.ToString(), lab, checkpoint);
+        Leaderboard.Instance.UpdatePlayerPlacement("Player " + OwnerClientId, lap, checkpoint);
     }
 }
