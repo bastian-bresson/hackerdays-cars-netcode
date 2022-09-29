@@ -19,6 +19,7 @@ public class CarMovement : NetworkBehaviour
     private float velocityForward;
     private float maximumSpeed = 20;
     private float minimumTurnSpeedFactor = 8;
+    private SpawnPoint spawnPoint;
 
     private void Awake()
     {
@@ -46,13 +47,27 @@ public class CarMovement : NetworkBehaviour
         {
             SetStartPosition();
         }
-        
+    }
+
+    public override void OnNetworkDespawn()
+    {
+        base.OnNetworkDespawn();
+        if (IsServer)
+        {
+            ReleaseSpawnPoint();
+        }
+    }
+
+    private void ReleaseSpawnPoint()
+    {
+        SpawnManager.instance.releaseSpawnPoint(spawnPoint);
     }
 
     private void SetStartPosition()
     {
-        var availableSpawnPoint = SpawnManager.instance.GetNextAvailableSpawnPoint();
-        transform.parent.position = availableSpawnPoint.getPosition();
+        spawnPoint = SpawnManager.instance.GetNextAvailableSpawnPoint();
+        transform.parent.position = spawnPoint.getPosition();
+        transform.rotation = Quaternion.Euler(new Vector3(0,rotationAngle,0));
     }
 
     // Update is called once per frame
