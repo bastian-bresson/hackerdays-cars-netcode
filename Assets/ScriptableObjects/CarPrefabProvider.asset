@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carPrefabs:
   - title: Race
+    color: {r: 1, g: 0.41305003, b: 0.4009434, a: 1}
     term: 0
     car: {fileID: 3985444051068498143, guid: 1ab3effe5b508424faa65ef77513a78d, type: 3}
   - title: Van
+    color: {r: 0, g: 0.45470548, b: 1, a: 1}
     term: 1
     car: {fileID: 5652748485994271325, guid: d98590ef5297e4c03944e75e93621cdc, type: 3}
