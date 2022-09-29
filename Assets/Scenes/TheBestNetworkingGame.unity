@@ -844,6 +844,18 @@ PrefabInstance:
       propertyPath: checkPointOrderOnTrack
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6417966337780070581, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -5354028657143720620, guid: cc6eedceeecdf4962a0ea5b04500f47d,
+        type: 3}
+    - target: {fileID: 6579545065472472761, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -5354028657143720620, guid: cc6eedceeecdf4962a0ea5b04500f47d,
+        type: 3}
     - target: {fileID: 7121593352607466958, guid: 143e49970157946c18f06a27837c921f,
         type: 3}
       propertyPath: GlobalObjectIdHash
