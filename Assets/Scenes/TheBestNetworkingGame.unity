@@ -719,6 +719,11 @@ PrefabInstance:
       propertyPath: checkPointOrderOnTrack
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 789015293853688734, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: previousCheckPointOrderOnTrack
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1820673596093811270, guid: 143e49970157946c18f06a27837c921f,
         type: 3}
       propertyPath: m_RootOrder
@@ -789,6 +794,11 @@ PrefabInstance:
       propertyPath: checkPointOrderOnTrack
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2351451859431356716, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: previousCheckPointOrderOnTrack
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3114678716125879523, guid: 143e49970157946c18f06a27837c921f,
         type: 3}
       propertyPath: isStart
@@ -824,6 +834,11 @@ PrefabInstance:
         type: 3}
       propertyPath: checkPointOrderOnTrack
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5563635902219389238, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: previousCheckPointOrderOnTrack
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6417966337780070581, guid: 143e49970157946c18f06a27837c921f,
         type: 3}
