@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8666882082866421324}
   - component: {fileID: 2958649332581691703}
   - component: {fileID: 8591465344463798264}
+  - component: {fileID: 3684072303357514257}
   m_Layer: 0
   m_Name: wheel_backLeft
   m_TagString: Untagged
@@ -85,6 +86,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &3684072303357514257
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161811079556762473}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b982a611d5be649e3a18854f52768eed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1425051735218336971
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +324,7 @@ GameObject:
   - component: {fileID: 2507702248181592212}
   - component: {fileID: 3326444375602127569}
   - component: {fileID: 3881991882972877478}
+  - component: {fileID: 3440225288991118498}
   m_Layer: 0
   m_Name: wheel_frontRight
   m_TagString: Untagged
@@ -377,6 +399,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &3440225288991118498
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3128893493128646616}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b982a611d5be649e3a18854f52768eed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4287563229341896934
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,6 +494,7 @@ GameObject:
   - component: {fileID: 4608876064417287594}
   - component: {fileID: 6765631102936301944}
   - component: {fileID: 2804420669801999666}
+  - component: {fileID: 6387571492845834931}
   m_Layer: 0
   m_Name: wheel_backRight
   m_TagString: Untagged
@@ -526,6 +569,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &6387571492845834931
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5452127226188026228}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b982a611d5be649e3a18854f52768eed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5760126838379897137
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +600,7 @@ GameObject:
   - component: {fileID: 4764008942518990250}
   - component: {fileID: 8684635927914872376}
   - component: {fileID: 691066503159049546}
+  - component: {fileID: 2363770905460046159}
   m_Layer: 0
   m_Name: wheel_frontLeft
   m_TagString: Untagged
@@ -611,6 +675,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &2363770905460046159
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5760126838379897137}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b982a611d5be649e3a18854f52768eed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5933629691747432860
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,8 +772,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe1a9bf441924b378469e8d6197ac85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontWheels: []
-  wheels: []
+  frontWheels:
+  - {fileID: 4764008942518990250}
+  - {fileID: 2507702248181592212}
+  wheels:
+  - {fileID: 3684072303357514257}
+  - {fileID: 6387571492845834931}
+  - {fileID: 2363770905460046159}
+  - {fileID: 3440225288991118498}
   turnSpeed: 2
   maxTurnAngle: 20
 --- !u!1 &8002060353074289327

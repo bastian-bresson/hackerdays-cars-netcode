@@ -21,3 +21,7 @@ MonoBehaviour:
     color: {r: 0, g: 0.45470548, b: 1, a: 1}
     term: 1
     car: {fileID: 5652748485994271325, guid: d98590ef5297e4c03944e75e93621cdc, type: 3}
+  - title: Firetruck
+    color: {r: 0.8018868, g: 0, b: 0.06205703, a: 1}
+    term: 2
+    car: {fileID: 6832738311041895484, guid: 31e94a1d9ef1b47848a83814c6a3cc2a, type: 3}
