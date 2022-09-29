@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class CarMovement : NetworkBehaviour
 {
+    [SerializeField] private Transform thirdPersonAnchor;
+    
     public float driftFactor = 0.95f;
     public float accelerationFactor = 30f;
     public float turnFactor = 3.5f;
@@ -46,6 +48,11 @@ public class CarMovement : NetworkBehaviour
         if (IsServer)
         {
             SetStartPosition();
+        }
+        
+        if (IsOwner)
+        {
+            CameraManager.instance.ClaimThirdPersonCamera(thirdPersonAnchor);
         }
     }
 
