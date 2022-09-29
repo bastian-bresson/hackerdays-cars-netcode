@@ -789,6 +789,11 @@ PrefabInstance:
       propertyPath: checkPointOrderOnTrack
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1420729311038483951, guid: 809c11a69dd57ca4a9affb340366cbf6,
+        type: 3}
+      propertyPath: previousCheckPointOrderOnTrack
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2221274555941737515, guid: 809c11a69dd57ca4a9affb340366cbf6,
         type: 3}
       propertyPath: m_Name
