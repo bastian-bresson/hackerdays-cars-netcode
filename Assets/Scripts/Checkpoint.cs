@@ -6,6 +6,7 @@ public class Checkpoint : NetworkBehaviour
 {
     [SerializeField] private bool isStart;
     [SerializeField] private int checkPointOrderOnTrack;
+    [SerializeField] private int previousCheckPointOrderOnTrack;
     [SerializeField] private BoxCollider boxCollider;
     
     
@@ -31,11 +32,18 @@ public class Checkpoint : NetworkBehaviour
         
         Debug.Log("Found Player Position");
 
+        if (playerRacePosition.checkpointNumber.Value != previousCheckPointOrderOnTrack)
+        {
+            Debug.Log("Wrong checkpoint!");
+            return;
+        }
+
         if (isStart)
         {
             playerRacePosition.lapNumber.Value++;
         }
 
         playerRacePosition.checkpointNumber.Value = checkPointOrderOnTrack;
+        Debug.Log("Lap: " + playerRacePosition.lapNumber.Value + " Checkpoint:" + playerRacePosition.checkpointNumber.Value);
     }
 }

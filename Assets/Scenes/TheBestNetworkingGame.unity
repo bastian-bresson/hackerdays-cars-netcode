@@ -354,25 +354,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
---- !u!1 &1215000411 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1820673596590176263, guid: 143e49970157946c18f06a27837c921f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1820673596728441549}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1215000416
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215000411}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 0, z: 10.000001}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1307454646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -738,6 +719,11 @@ PrefabInstance:
       propertyPath: checkPointOrderOnTrack
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 789015293853688734, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: previousCheckPointOrderOnTrack
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1820673596093811270, guid: 143e49970157946c18f06a27837c921f,
         type: 3}
       propertyPath: m_RootOrder
@@ -808,6 +794,11 @@ PrefabInstance:
       propertyPath: checkPointOrderOnTrack
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2351451859431356716, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: previousCheckPointOrderOnTrack
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3114678716125879523, guid: 143e49970157946c18f06a27837c921f,
         type: 3}
       propertyPath: isStart
@@ -818,6 +809,12 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3324842031351521300, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -5354028657143720620, guid: cc6eedceeecdf4962a0ea5b04500f47d,
+        type: 3}
     - target: {fileID: 4415676823351728075, guid: 143e49970157946c18f06a27837c921f,
         type: 3}
       propertyPath: checkPointOrderOnTrack
@@ -838,6 +835,23 @@ PrefabInstance:
       propertyPath: checkPointOrderOnTrack
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5563635902219389238, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: previousCheckPointOrderOnTrack
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417966337780070581, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -5354028657143720620, guid: cc6eedceeecdf4962a0ea5b04500f47d,
+        type: 3}
+    - target: {fileID: 6579545065472472761, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -5354028657143720620, guid: cc6eedceeecdf4962a0ea5b04500f47d,
+        type: 3}
     - target: {fileID: 7121593352607466958, guid: 143e49970157946c18f06a27837c921f,
         type: 3}
       propertyPath: GlobalObjectIdHash

@@ -36,4 +36,9 @@ public class SpawnManager : NetworkBehaviour
         var availaleSpawnPoint = spawnPoints.First(spawnPoint => !spawnPoint.isUsed);
         return availaleSpawnPoint;
     }
+
+    public void releaseSpawnPoint(SpawnPoint spawnPoint)
+    {
+        spawnPoints.First(spawnPoint => spawnPoint.Equals(spawnPoint)).isUsed = false;
+    }
 }
