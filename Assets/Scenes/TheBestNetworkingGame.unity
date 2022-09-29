@@ -818,6 +818,12 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3324842031351521300, guid: 143e49970157946c18f06a27837c921f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -5354028657143720620, guid: cc6eedceeecdf4962a0ea5b04500f47d,
+        type: 3}
     - target: {fileID: 4415676823351728075, guid: 143e49970157946c18f06a27837c921f,
         type: 3}
       propertyPath: checkPointOrderOnTrack
