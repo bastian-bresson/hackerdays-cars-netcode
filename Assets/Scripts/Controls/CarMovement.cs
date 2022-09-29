@@ -23,7 +23,6 @@ public class CarMovement : NetworkBehaviour
 
     private void Awake()
     {
-        carRigidBody = GetComponent<Rigidbody>();
     }
     
     void Update()
@@ -42,6 +41,10 @@ public class CarMovement : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
+        carRigidBody = GetComponentInChildren<Rigidbody>();
+        if (carRigidBody == null)
+            Debug.Log($"There's no rigid body here, matey! :(");
+        
         base.OnNetworkSpawn();
         if (IsServer)
         {
@@ -94,14 +97,14 @@ public class CarMovement : NetworkBehaviour
         {
             carRigidBody.drag = 0;
         }
-
-        velocityForward = Vector3.Dot(transform.forward, carRigidBody.velocity);
+        
+        velocityForward = Vector3.Dot(carRigidBody.transform.forward, carRigidBody.velocity);
 
         if (velocityForward > maximumSpeed && accelerationInput.Value > 0) return;
 
         if (velocityForward < -maximumSpeed / 1.5f && accelerationInput.Value < 0) return;
         // Vector3 engineForceVector = transform.forward * accelerationInput * accelerationFactor;
-        Vector3 engineForceVector = transform.forward * accelerationInput.Value * accelerationFactor;
+        Vector3 engineForceVector = carRigidBody.transform.forward * accelerationInput.Value * accelerationFactor;
 
         carRigidBody.AddForce(engineForceVector, ForceMode.Force);
     }
@@ -110,6 +113,7 @@ public class CarMovement : NetworkBehaviour
     {
         float minSpeedBeforeAllowTurningFactor = carRigidBody.velocity.magnitude / minimumTurnSpeedFactor;
         minSpeedBeforeAllowTurningFactor = Mathf.Clamp01(minSpeedBeforeAllowTurningFactor);
+
         if (velocityForward > 0)
         {
             rotationAngle += steeringInput.Value * turnFactor * minSpeedBeforeAllowTurningFactor;

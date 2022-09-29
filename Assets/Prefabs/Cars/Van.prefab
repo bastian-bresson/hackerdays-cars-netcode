@@ -586,6 +586,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4988097643518396647}
   - component: {fileID: 6244128684121766921}
+  - component: {fileID: 8461581856401869069}
+  - component: {fileID: 4342595053655189452}
   m_Layer: 0
   m_Name: Van
   m_TagString: Untagged
@@ -631,6 +633,35 @@ MonoBehaviour:
   - {fileID: 2703379233958347488}
   turnSpeed: 2
   maxTurnAngle: 20
+--- !u!65 &8461581856401869069
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652748485994271325}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.312821, y: 1.3825619, z: 2.656897}
+  m_Center: {x: 0.0029512048, y: 0.68707275, z: -0.031217098}
+--- !u!54 &4342595053655189452
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652748485994271325}
+  serializedVersion: 2
+  m_Mass: 0.8
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5833480025580601782
 GameObject:
   m_ObjectHideFlags: 0
