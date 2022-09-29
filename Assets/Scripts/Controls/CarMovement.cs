@@ -56,7 +56,7 @@ public class CarMovement : NetworkBehaviour
             PlayerCountHolder.instance.playerCount.Value += 1;
         }
 
-        ChangeColor(playerNumber.Value);
+        //ChangeColor(playerNumber.Value);
     }
 
     private void ChangeColor(int playerCounter)
