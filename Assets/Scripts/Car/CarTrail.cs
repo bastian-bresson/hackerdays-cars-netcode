@@ -13,11 +13,13 @@ namespace Car
         [SerializeField] private float requiredAngularVelocity;
 
         private bool emit;
+        private bool isGrounded;
 
         private void Update()
         {
             bool shouldEmit = carRigidBody.velocity.magnitude >= requiredVelocity &&
-                              carRigidBody.angularVelocity.magnitude >= requiredAngularVelocity;
+                              carRigidBody.angularVelocity.magnitude >= requiredAngularVelocity &&
+                              isGrounded;
 
             if (emit == shouldEmit) return;
             
@@ -27,6 +29,16 @@ namespace Car
             {
                 trailRenderer.emitting = emit;
             }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            isGrounded = true;
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            isGrounded = false;
         }
     }
 }

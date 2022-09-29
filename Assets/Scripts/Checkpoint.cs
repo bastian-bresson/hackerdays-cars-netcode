@@ -90,5 +90,7 @@ public class Checkpoint : NetworkBehaviour
 
         playerRacePosition.checkpointNumber.Value = checkPointOrderOnTrack;
         Debug.Log("Lap: " + playerRacePosition.lapNumber.Value + " Checkpoint:" + playerRacePosition.checkpointNumber.Value);
+        
+        
     }
 }
