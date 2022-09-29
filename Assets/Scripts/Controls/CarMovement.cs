@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class CarMovement : NetworkBehaviour
 {
-    [SerializeField] private Transform thirdPersonAnchor;
-    
     public float driftFactor = 0.95f;
     public float accelerationFactor = 30f;
     public float turnFactor = 3.5f;
@@ -21,7 +19,12 @@ public class CarMovement : NetworkBehaviour
     private float velocityForward;
     private float maximumSpeed = 20;
     private float minimumTurnSpeedFactor = 8;
-    private SpawnPoint spawnPoint;
+
+    private NetworkVariable<int> playerNumber = new NetworkVariable<int>();
+
+
+
+    [SerializeField] private MeshRenderer bodyMesh;
 
     private void Awake()
     {
@@ -45,36 +48,28 @@ public class CarMovement : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
+        
         if (IsServer)
         {
             SetStartPosition();
+            playerNumber.Value = PlayerCountHolder.instance.playerCount.Value;
+            PlayerCountHolder.instance.playerCount.Value += 1;
         }
-        
-        if (IsOwner)
-        {
-            CameraManager.instance.ClaimThirdPersonCamera(thirdPersonAnchor);
-        }
+
+        ChangeColor(playerNumber.Value);
     }
 
-    public override void OnNetworkDespawn()
+    private void ChangeColor(int playerCounter)
     {
-        base.OnNetworkDespawn();
-        if (IsServer)
-        {
-            ReleaseSpawnPoint();
-        }
+        Material[] materials = bodyMesh.materials;
+        materials[0] = PlayerCountHolder.instance.carColors[playerCounter];
+        bodyMesh.materials = materials;
     }
-
-    private void ReleaseSpawnPoint()
-    {
-        SpawnManager.instance.releaseSpawnPoint(spawnPoint);
-    }
-
+    
     private void SetStartPosition()
     {
-        spawnPoint = SpawnManager.instance.GetNextAvailableSpawnPoint();
-        transform.parent.position = spawnPoint.getPosition();
-        transform.rotation = Quaternion.Euler(new Vector3(0,rotationAngle,0));
+        var availableSpawnPoint = SpawnManager.instance.GetNextAvailableSpawnPoint();
+        transform.parent.position = availableSpawnPoint.getPosition();
     }
 
     // Update is called once per frame
@@ -117,13 +112,8 @@ public class CarMovement : NetworkBehaviour
     {
         float minSpeedBeforeAllowTurningFactor = carRigidBody.velocity.magnitude / minimumTurnSpeedFactor;
         minSpeedBeforeAllowTurningFactor = Mathf.Clamp01(minSpeedBeforeAllowTurningFactor);
-        if (velocityForward > 0)
-        {
-            rotationAngle += steeringInput.Value * turnFactor * minSpeedBeforeAllowTurningFactor;
-        } else
-        {
-            rotationAngle -= steeringInput.Value * turnFactor * minSpeedBeforeAllowTurningFactor;
-        }
+
+        rotationAngle += steeringInput.Value * turnFactor * minSpeedBeforeAllowTurningFactor;
         carRigidBody.MoveRotation(Quaternion.Euler(0, rotationAngle, 0));
     }
 
