@@ -2,6 +2,6 @@ namespace Car
 {
     public static class CarSelection
     {
-        public static CarPrefabTerm CarSelected = CarPrefabTerm.Race;
+        public static CarPrefabTerm CarSelected = CarPrefabTerm.Firetruck;
     }
 }

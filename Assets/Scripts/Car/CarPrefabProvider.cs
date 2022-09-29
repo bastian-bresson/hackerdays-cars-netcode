@@ -9,8 +9,10 @@ namespace Car
     {
         [SerializeField] private List<CarPrefab> carPrefabs;
 
-        private Dictionary<CarPrefabTerm, GameObject> carPrefabsDictionary = new();
+        public List<CarPrefab> CarPrefabs => carPrefabs;
 
+        private Dictionary<CarPrefabTerm, GameObject> carPrefabsDictionary = new();
+        
         public GameObject GetCarPrefab(CarPrefabTerm carTerm)
         {
             if (carPrefabsDictionary.Count <= 0)
@@ -35,9 +37,11 @@ namespace Car
     public class CarPrefab
     {
         [SerializeField] private string title;
+        [SerializeField] private Sprite sprite;
         [SerializeField] private CarPrefabTerm term;
         [SerializeField] private GameObject car;
 
+        public Sprite Sprite => sprite;
         public CarPrefabTerm Term => term;
         public GameObject Car => car;
     }
