@@ -1,17 +1,25 @@
 using Controls;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace Car
 {
-    public class CarPrefabManager : MonoBehaviour
+    public class CarPrefabManager : NetworkBehaviour
     {
         [SerializeField] private Transform carAnchor;
         [SerializeField] private CarInputHandler carInputHandler;
         [SerializeField] private CarPrefabProvider carPrefabProvider;
 
-        private void Awake()
+        private CarPrefabTerm carPrefabTerm;
+
+        public override void OnNetworkSpawn()
         {
-            SetupCarPrefab(CarSelection.CarSelected);
+            carPrefabTerm = CarSelection.CarSelected;
+        }
+        
+        private void Start()
+        {
+            SetupCarPrefab(carPrefabTerm);
         }
 
         private void SetupCarPrefab(CarPrefabTerm carPrefabTerm)
