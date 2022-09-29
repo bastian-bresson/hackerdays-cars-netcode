@@ -22,7 +22,7 @@ namespace Controls
             carMovement.SetInputVectorServerRpc(inputVector);
 
             UpdateWheelSpin(inputVector.y);
-            CarWheelAnimations.TurnWheels(inputVector.x);
+            CarWheelAnimations.TurnFrontWheels(inputVector.x);
         }
 
         private void UpdateWheelSpin(float inputVectorY)

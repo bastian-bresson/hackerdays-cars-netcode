@@ -4,6 +4,7 @@ namespace Car
 {
     public enum CarPrefabTerm
     {
-        Race
+        Race,
+        Van
     }
 }

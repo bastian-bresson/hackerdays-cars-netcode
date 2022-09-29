@@ -12,7 +12,7 @@ namespace Car
 
         private void Awake()
         {
-            SetupCarPrefab(CarPrefabTerm.Race);
+            SetupCarPrefab(CarPrefabTerm.Van);
         }
 
         public void SetupCarPrefab(CarPrefabTerm carPrefabTerm)
