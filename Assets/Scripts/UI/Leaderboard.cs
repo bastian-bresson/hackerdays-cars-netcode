@@ -20,7 +20,7 @@ public class Leaderboard : MonoBehaviour
             Instance = this;
     }
 
-    public void RegisterPlayer(string playerNumber)
+    public void RegisterPlayer(string playerNumber, bool isLocalPlayer)
     {
         string playerName = "Player " + playerNumber;
         
@@ -30,7 +30,7 @@ public class Leaderboard : MonoBehaviour
      
         Debug.Log($"Registering player with name: {playerName}");
         
-        leaderBoardPlacements.Add(new LeaderBoardPlacement(playerName));
+        leaderBoardPlacements.Add(new LeaderBoardPlacement(playerName, isLocalPlayer));
 
         LeaderboardPlayerView playerView = Instantiate(leaderboardPlayerUI, leaderboardContainer);
         leaderboardPlayerViews.Add(playerView);
@@ -47,7 +47,7 @@ public class Leaderboard : MonoBehaviour
         
         LeaderBoardPlacement placement = leaderBoardPlacements.FirstOrDefault(p => p.PlayerName == playerName);
 
-        if (string.IsNullOrEmpty(placement.PlayerName)) return;
+        if (placement == null) return;
 
         placement.LapsCompleted = laps;
         placement.CheckPointNumber = checkPointNumber;
@@ -65,20 +65,21 @@ public class Leaderboard : MonoBehaviour
         {
             Debug.Log($"Position {i+1} {leaderBoardPlacements[i].PlayerName}");
             leaderboardPlayerViews[i].SetName(leaderBoardPlacements[i].PlayerName);
+            leaderboardPlayerViews[i].SetLocalPlayerIndicator(leaderBoardPlacements[i].IsLocalPlayer);
         }
     }
     
     private class LeaderBoardPlacement
     {
-        public LeaderBoardPlacement(string playerName)
+        public LeaderBoardPlacement(string playerName, bool isLocalPlayer)
         {
             PlayerName = playerName;
-            LapsCompleted = 0;
-            CheckPointNumber = 0;
+            IsLocalPlayer = isLocalPlayer;
         }
         
         public readonly string PlayerName;
         public int LapsCompleted;
-        public int CheckPointNumber ;
+        public int CheckPointNumber;
+        public bool IsLocalPlayer;
     }
 }

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c454a8cd4f34dc582abd9733c432cb, type: 3}
+  m_Name: CarPrefabProvider
+  m_EditorClassIdentifier: 
+  carPrefabs:
+  - title: Race
+    sprite: {fileID: 21300000, guid: 74bf4470f06b443f782e90806ecc2e61, type: 3}
+    term: 0
+    car: {fileID: 3985444051068498143, guid: 1ab3effe5b508424faa65ef77513a78d, type: 3}
+  - title: Van
+    sprite: {fileID: 21300000, guid: ee001c3bebc9d4e4ea7a70ca1d72300a, type: 3}
+    term: 1
+    car: {fileID: 5652748485994271325, guid: d98590ef5297e4c03944e75e93621cdc, type: 3}
+  - title: Firetruck
+    sprite: {fileID: 21300000, guid: d36462a4f88e84d8cba8fee0498581d8, type: 3}
+    term: 2
+    car: {fileID: 6832738311041895484, guid: 31e94a1d9ef1b47848a83814c6a3cc2a, type: 3}
