@@ -14,7 +14,7 @@ namespace UI
         
         public void SetupCarSelectToggle(ToggleGroup toggleGroup, Image currentlySelected, CarPrefab carPrefab)
         {
-            image.color = carPrefab.Color;
+            image.sprite = carPrefab.Sprite;
             toggle.group = toggleGroup;
             this.currentlySelected = currentlySelected;
             this.carPrefab = carPrefab;
@@ -27,7 +27,7 @@ namespace UI
             if (isToggled)
             {
                 CarSelection.CarSelected = carPrefab.Term;
-                currentlySelected.color = carPrefab.Color;
+                currentlySelected.sprite = carPrefab.Sprite;
             }
         }
 

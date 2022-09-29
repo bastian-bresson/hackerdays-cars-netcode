@@ -37,11 +37,11 @@ namespace Car
     public class CarPrefab
     {
         [SerializeField] private string title;
-        [SerializeField] private Color color;
+        [SerializeField] private Sprite sprite;
         [SerializeField] private CarPrefabTerm term;
         [SerializeField] private GameObject car;
 
-        public Color Color => color;
+        public Sprite Sprite => sprite;
         public CarPrefabTerm Term => term;
         public GameObject Car => car;
     }
