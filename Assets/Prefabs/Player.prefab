@@ -118,7 +118,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carMovement: {fileID: 5737705417176498495}
-  carWheelAnimations: {fileID: 0}
 --- !u!114 &5737705417176498495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,4 +212,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carAnchor: {fileID: 728572876692088210}
+  carInputHandler: {fileID: 2862674155039980203}
   carPrefabProvider: {fileID: 11400000, guid: 8b8122a570f9f49e4b7cf71556b728a0, type: 2}
