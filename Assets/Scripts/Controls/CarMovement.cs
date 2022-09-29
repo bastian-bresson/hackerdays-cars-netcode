@@ -110,8 +110,13 @@ public class CarMovement : NetworkBehaviour
     {
         float minSpeedBeforeAllowTurningFactor = carRigidBody.velocity.magnitude / minimumTurnSpeedFactor;
         minSpeedBeforeAllowTurningFactor = Mathf.Clamp01(minSpeedBeforeAllowTurningFactor);
-
-        rotationAngle += steeringInput.Value * turnFactor * minSpeedBeforeAllowTurningFactor;
+        if (velocityForward > 0)
+        {
+            rotationAngle += steeringInput.Value * turnFactor * minSpeedBeforeAllowTurningFactor;
+        } else
+        {
+            rotationAngle -= steeringInput.Value * turnFactor * minSpeedBeforeAllowTurningFactor;
+        }
         carRigidBody.MoveRotation(Quaternion.Euler(0, rotationAngle, 0));
     }
 
