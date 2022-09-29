@@ -29,7 +29,7 @@ public class PlayerRacePosition : NetworkBehaviour
 
     private void Setup()
     {
-        Leaderboard.Instance.RegisterPlayer(OwnerClientId.ToString());
+        Leaderboard.Instance.RegisterPlayer(OwnerClientId.ToString(), IsLocalPlayer);
     }
 
     private void UpdateRacePosition(int lap, int checkpoint)

@@ -19,6 +19,7 @@ public class CarMovement : NetworkBehaviour
     private float velocityForward;
     private float maximumSpeed = 20;
     private float minimumTurnSpeedFactor = 8;
+    private SpawnPoint spawnPoint;
 
     private void Awake()
     {
@@ -46,13 +47,27 @@ public class CarMovement : NetworkBehaviour
         {
             SetStartPosition();
         }
-        
+    }
+
+    public override void OnNetworkDespawn()
+    {
+        base.OnNetworkDespawn();
+        if (IsServer)
+        {
+            ReleaseSpawnPoint();
+        }
+    }
+
+    private void ReleaseSpawnPoint()
+    {
+        SpawnManager.instance.releaseSpawnPoint(spawnPoint);
     }
 
     private void SetStartPosition()
     {
-        var availableSpawnPoint = SpawnManager.instance.GetNextAvailableSpawnPoint();
-        transform.parent.position = availableSpawnPoint.getPosition();
+        spawnPoint = SpawnManager.instance.GetNextAvailableSpawnPoint();
+        transform.parent.position = spawnPoint.getPosition();
+        transform.rotation = Quaternion.Euler(new Vector3(0,rotationAngle,0));
     }
 
     // Update is called once per frame
@@ -95,8 +110,13 @@ public class CarMovement : NetworkBehaviour
     {
         float minSpeedBeforeAllowTurningFactor = carRigidBody.velocity.magnitude / minimumTurnSpeedFactor;
         minSpeedBeforeAllowTurningFactor = Mathf.Clamp01(minSpeedBeforeAllowTurningFactor);
-
-        rotationAngle += steeringInput.Value * turnFactor * minSpeedBeforeAllowTurningFactor;
+        if (velocityForward > 0)
+        {
+            rotationAngle += steeringInput.Value * turnFactor * minSpeedBeforeAllowTurningFactor;
+        } else
+        {
+            rotationAngle -= steeringInput.Value * turnFactor * minSpeedBeforeAllowTurningFactor;
+        }
         carRigidBody.MoveRotation(Quaternion.Euler(0, rotationAngle, 0));
     }
 
