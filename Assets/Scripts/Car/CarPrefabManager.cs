@@ -14,7 +14,7 @@ namespace Car
             SetupCarPrefab(CarSelection.CarSelected);
         }
 
-        public void SetupCarPrefab(CarPrefabTerm carPrefabTerm)
+        private void SetupCarPrefab(CarPrefabTerm carPrefabTerm)
         {
             GameObject prefab = carPrefabProvider.GetCarPrefab(carPrefabTerm);
             GameObject newCarChassis = Instantiate(prefab, carAnchor);
