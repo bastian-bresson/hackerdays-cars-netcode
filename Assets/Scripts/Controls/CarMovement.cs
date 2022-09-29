@@ -20,7 +20,7 @@ public class CarMovement : NetworkBehaviour
     private float maximumSpeed = 20;
     private float minimumTurnSpeedFactor = 8;
 
-    private NetworkVariable<int> playerNumber;
+    private NetworkVariable<int> playerNumber = new NetworkVariable<int>();
 
 
 
@@ -52,15 +52,11 @@ public class CarMovement : NetworkBehaviour
         if (IsServer)
         {
             SetStartPosition();
-            PlayerCountHolder.instance.playerCount.Value += 1;
-        }/*
-        if (IsOwner)
-        {
             playerNumber.Value = PlayerCountHolder.instance.playerCount.Value;
-        }*/
-        //ChangeColor(playerNumber.Value);
-        
-        Debug.Log(PlayerCountHolder.instance.playerCount.Value);
+            PlayerCountHolder.instance.playerCount.Value += 1;
+        }
+
+        ChangeColor(playerNumber.Value);
     }
 
     private void ChangeColor(int playerCounter)
