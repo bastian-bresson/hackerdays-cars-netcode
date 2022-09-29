@@ -5,6 +5,17 @@ using UnityEngine;
 
 public class PlayerCountHolder : NetworkBehaviour
 {
-    public static NetworkVariable<int> playerCount;
+    public static PlayerCountHolder instance;
+    
+    public NetworkVariable<int> playerCount;
 
+    
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+    
 }
