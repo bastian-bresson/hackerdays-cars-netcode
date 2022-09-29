@@ -33,7 +33,7 @@ public class Checkpoint : NetworkBehaviour
 
         if (isStart)
         {
-            playerRacePosition.labNumber.Value++;
+            playerRacePosition.lapNumber.Value++;
         }
 
         playerRacePosition.checkpointNumber.Value = checkPointOrderOnTrack;
