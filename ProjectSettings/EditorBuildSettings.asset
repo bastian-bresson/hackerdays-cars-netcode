@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Hello World/HelloWorld.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: cac8e00a5119441fba31a09914f9f344
+  - enabled: 1
     path: Assets/Scenes/TheBestNetworkingGame.unity
     guid: 85819dc5507e64da781a366efe03bd77
   m_configObjects: {}
