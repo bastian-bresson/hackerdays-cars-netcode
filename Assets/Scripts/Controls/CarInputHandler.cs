@@ -6,9 +6,9 @@ namespace Controls
     public class CarInputHandler : NetworkBehaviour
     {
         [SerializeField] private CarMovement carMovement;
-        [SerializeField] private CarWheelAnimations carWheelAnimations;
         
-        // Update is called once per frame
+        public CarWheelAnimations CarWheelAnimations { get; set; }
+        
         private void Update()
         {
             if (!IsOwner)
@@ -22,7 +22,7 @@ namespace Controls
             carMovement.SetInputVectorServerRpc(inputVector);
 
             UpdateWheelSpin(inputVector.y);
-            carWheelAnimations.TurnWheels(inputVector.x);
+            CarWheelAnimations.TurnFrontWheels(inputVector.x);
         }
 
         private void UpdateWheelSpin(float inputVectorY)
@@ -30,13 +30,13 @@ namespace Controls
             switch (inputVectorY)
             {
                 case > 0:
-                    carWheelAnimations.MoveWheelsForwards();
+                    CarWheelAnimations.MoveWheelsForwards();
                     break;
                 case < 0:
-                    carWheelAnimations.MoveWheelsBackwards();
+                    CarWheelAnimations.MoveWheelsBackwards();
                     break;
                 default:
-                    carWheelAnimations.StopMovingWheels();
+                    CarWheelAnimations.StopMovingWheels();
                     break;
             }
         }

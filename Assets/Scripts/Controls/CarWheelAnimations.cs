@@ -5,34 +5,24 @@ namespace Controls
 {
     public class CarWheelAnimations : MonoBehaviour
     {
-        [Header("Front wheels")] 
-        [SerializeField] private Transform leftFrontWheel;
-        [SerializeField] private Transform rightFrontWheel;
-        
-        [Header("Wheels")]
+        [Header("Front Wheels")] 
+        [SerializeField] private List<Transform> frontWheels;
+
+        [Header("Wheel Animators")]
         [SerializeField] private List<Animator> wheels;
 
         [Header("Wheel Settings")] 
         [SerializeField] private float turnSpeed = 2f;
-        [SerializeField] private float maxRotation = 20f;
+        [SerializeField] private float maxTurnAngle = 20f;
 
-        public void TurnWheels(float inputVectorX)
+        public void TurnFrontWheels(float inputVectorX)
         {
-            TurnWheel(inputVectorX, leftFrontWheel);
-            TurnWheel(inputVectorX, rightFrontWheel);
+            foreach (Transform frontWheel in frontWheels)
+            {            
+                TurnWheel(inputVectorX, frontWheel);
+            }
         }
 
-        private void TurnWheel(float inputVectorX, Transform wheel)
-        {
-            if(inputVectorX < 0 && wheel.localRotation.y > -maxRotation)
-                wheel.localRotation = Quaternion.Slerp(wheel.localRotation, Quaternion.Euler(0,-maxRotation,0), Time.deltaTime * 2f);
-            else if(inputVectorX > 0 && wheel.localRotation.y < maxRotation)
-                wheel.localRotation = Quaternion.Slerp(wheel.localRotation, Quaternion.Euler(0,maxRotation,0), Time.deltaTime * 2f);
-                
-            if(inputVectorX == 0)
-                wheel.localRotation = Quaternion.Slerp(wheel.localRotation, Quaternion.Euler(0,0,0), Time.deltaTime * turnSpeed);
-        }
-        
         public void MoveWheelsBackwards()
         {
             foreach (Animator animator in wheels)
@@ -57,6 +47,17 @@ namespace Controls
             {
                 animator.enabled = false;
             }
+        }
+        
+        private void TurnWheel(float inputVectorX, Transform wheel)
+        {
+            if(inputVectorX < 0 && wheel.localRotation.y > -maxTurnAngle)
+                wheel.localRotation = Quaternion.Slerp(wheel.localRotation, Quaternion.Euler(0,-maxTurnAngle,0), Time.deltaTime * 2f);
+            else if(inputVectorX > 0 && wheel.localRotation.y < maxTurnAngle)
+                wheel.localRotation = Quaternion.Slerp(wheel.localRotation, Quaternion.Euler(0,maxTurnAngle,0), Time.deltaTime * 2f);
+                
+            if(inputVectorX == 0)
+                wheel.localRotation = Quaternion.Slerp(wheel.localRotation, Quaternion.Euler(0,0,0), Time.deltaTime * turnSpeed);
         }
     }
 }
