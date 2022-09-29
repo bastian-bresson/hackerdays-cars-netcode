@@ -22,5 +22,6 @@ public class CameraManager : MonoBehaviour
     public void ClaimThirdPersonCamera(Transform thirdPersonAnchor)
     {
         cinemachineVirtualCamera.LookAt = thirdPersonAnchor;
+        cinemachineVirtualCamera.Follow = thirdPersonAnchor;
     }
 }
