@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.30322725, g: 0.12813418, b: 0.342678, a: 1}
+  m_IndirectSpecularColor: {r: 0.30321336, g: 0.12815265, b: 0.34266487, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -314,6 +314,80 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3927274644598414658, guid: 036760a979b574ee98845700720696cb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 036760a979b574ee98845700720696cb, type: 3}
+--- !u!1001 &817289535
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1692563027444547844, guid: 19ff684ba190a4642b3f8ddf70ef60af,
+        type: 3}
+      propertyPath: m_Name
+      value: playercounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692563027444547845, guid: 19ff684ba190a4642b3f8ddf70ef60af,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3127476956
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692563027444548091, guid: 19ff684ba190a4642b3f8ddf70ef60af,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692563027444548091, guid: 19ff684ba190a4642b3f8ddf70ef60af,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 57.847595
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692563027444548091, guid: 19ff684ba190a4642b3f8ddf70ef60af,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -27.868229
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692563027444548091, guid: 19ff684ba190a4642b3f8ddf70ef60af,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -40.68483
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692563027444548091, guid: 19ff684ba190a4642b3f8ddf70ef60af,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692563027444548091, guid: 19ff684ba190a4642b3f8ddf70ef60af,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692563027444548091, guid: 19ff684ba190a4642b3f8ddf70ef60af,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692563027444548091, guid: 19ff684ba190a4642b3f8ddf70ef60af,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692563027444548091, guid: 19ff684ba190a4642b3f8ddf70ef60af,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692563027444548091, guid: 19ff684ba190a4642b3f8ddf70ef60af,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692563027444548091, guid: 19ff684ba190a4642b3f8ddf70ef60af,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 19ff684ba190a4642b3f8ddf70ef60af, type: 3}
 --- !u!114 &1095681193 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 977822128184415189, guid: 143e49970157946c18f06a27837c921f,
@@ -824,7 +898,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1667757720}
-  m_LocalRotation: {x: 0.15296626, y: 0.80095816, z: -0.23080832, w: 0.5308437}
+  m_LocalRotation: {x: 0.15296626, y: 0.8009581, z: -0.23080832, w: 0.5308436}
   m_LocalPosition: {x: -47.565, y: 56.404, z: 33.908}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1029,7 +1103,7 @@ PrefabInstance:
     - target: {fileID: 2311876121659398698, guid: 61afd56d9a4474d11a45088fa25abc4d,
         type: 3}
       propertyPath: ConnectionData.Address
-      value: 192.168.10.221
+      value: 192.168.0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8959489837524654012, guid: 61afd56d9a4474d11a45088fa25abc4d,
         type: 3}

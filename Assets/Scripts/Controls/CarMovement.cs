@@ -23,6 +23,9 @@ public class CarMovement : NetworkBehaviour
     private float minimumTurnSpeedFactor = 8;
     private SpawnPoint spawnPoint;
 
+    private NetworkVariable<int> playerNumber = new NetworkVariable<int>();
+    [SerializeField] private MeshRenderer bodyMesh;
+
     private void Awake()
     {
         carRigidBody = GetComponent<Rigidbody>();
@@ -48,12 +51,15 @@ public class CarMovement : NetworkBehaviour
         if (IsServer)
         {
             SetStartPosition();
+            playerNumber.Value = PlayerCountHolder.instance.playerCount.Value;
+            PlayerCountHolder.instance.playerCount.Value += 1;
         }
         
         if (IsOwner)
         {
             CameraManager.instance.ClaimThirdPersonCamera(thirdPersonAnchor);
         }
+        ChangeColor(playerNumber.Value);
     }
 
     public override void OnNetworkDespawn()
@@ -65,6 +71,24 @@ public class CarMovement : NetworkBehaviour
         }
     }
 
+    private void ChangeColor(int playerCounter)
+    {
+        if (bodyMesh == null)
+        {
+            try
+            {
+                bodyMesh = transform.GetChild(2).GetChild(0).GetComponent<MeshRenderer>();
+            }
+            catch (Exception e)
+            {
+                return;
+            }
+        }
+        Material[] materials = bodyMesh.materials;
+        materials[0] = PlayerCountHolder.instance.carColors[playerCounter];
+        bodyMesh.materials = materials;
+    }
+    
     private void ReleaseSpawnPoint()
     {
         SpawnManager.instance.releaseSpawnPoint(spawnPoint);
